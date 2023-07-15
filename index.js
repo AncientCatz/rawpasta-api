@@ -6,20 +6,23 @@ const OTPAuth = require('otpauth');
 const fs = require('fs');
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 // Retrieve MongoDB URI from system environment or use a default value
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/rawpasta';
 
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch((error) => {
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/rawpasta', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+  } catch (error) {
     console.error('Error connecting to MongoDB:', error);
-  });
+    process.exit(1);
+  }
+};
 
 const storage = multer.memoryStorage();
 
@@ -361,6 +364,9 @@ app.use((req, res, next) => {
 
 app.use(errorHandler);
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+// Connect to the database before listening
+connectDB().then(() => {
+  app.listen(PORT, () => {
+    console.log('Server is running on port', PORT);
+  });
 });
