@@ -142,6 +142,20 @@ app.get('/validate', (req, res, next) => {
   res.json(response);
 });
 
+app.get('/health', (req, res) => {
+  const uptime = process.uptime(); // Get the server uptime in seconds
+  const status = uptime < 60 ? 'healthy' : 'degraded'; // Consider the server degraded if uptime is less than 60 seconds
+
+  const response = {
+    timestamp: Date.now(), // Current timestamp in milliseconds
+    date: new Date().toISOString(),
+    status,
+    uptime: `${uptime.toFixed(2)} seconds`,
+  };
+
+  res.json(response);
+});
+
 app.post('/create-key', (req, res, next) => {
   const apiKeyId = generateApiKeyID();
   const apiKey = generateApiKey();
