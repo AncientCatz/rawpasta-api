@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Docs - rawpasta API</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="AncientCatz">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,100&display=swap" rel="stylesheet">
+    <style>
+      html {
+        height: 100%
+      }
+
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        font-family: 'Lato', sans-serif;
+        color: #333;
+        display: table
+      }
+
+      .main {
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle
+      }
+
+      .main .title {
+        display: inline-block;
+        font-size: 64px
+      }
+
+      .main .small {
+        font-size: 40px
+      }
+
+      .main .small a {
+        color: #000;
+        text-decoration: none
+      }
+
+      .overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="main">
+      <div class="title">Coming soon..</div>
+      <div class="small" style="display: none;">
+        <a target="_blank" href="docs.html">- Docs -</a>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $(".overlay").delay(1000).fadeOut("slow");
+      });
+    </script>
+  </body>
+</html>

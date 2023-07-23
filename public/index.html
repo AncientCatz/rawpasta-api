@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>rawpasta API</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="AncientCatz">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="css/loader.css"> -->
+    <style>
+      html {
+        height: 100%
+      }
+
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        font-family: 'Lato', sans-serif;
+        color: #333;
+        display: table
+      }
+
+      .main {
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle
+      }
+
+      .main .title {
+        display: inline-block;
+        font-size: 64px
+      }
+
+      .main .small {
+        font-size: 32px
+      }
+
+      .main .small a {
+        color: #000;
+        text-decoration: none
+      }
+
+
+      .overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+      } /*
+
+      .content {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+      }
+
+      .paddle {
+        height: 40px;
+        width: 3px;
+        background-color: #333;
+        position: relative;
+      }
+
+      .player_one {
+        @extend .paddle;
+        left: -100px;
+        animation: movePaddleOne 4s infinite;
+      }
+
+      .player_two {
+        @extend .paddle;
+        left: 100px;
+        animation: movePaddleTwo 4s infinite;
+      }
+
+      .ball {
+        position: relative;
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
+        background-color: #333;
+        animation: moveBall 4s infinite linear;
+      }
+
+      @keyframes movePaddleOne {
+
+        0%,
+        100% {
+          transform: translate(0px, 100px);
+        }
+
+        25% {
+          transform: translate(0px, 0px);
+        }
+
+        50% {
+          transform: translate(0px, 0px);
+        }
+
+        75% {
+          transform: translate(0px, 100px);
+        }
+      }
+
+      @keyframes movePaddleTwo {
+
+        0%,
+        100% {
+          transform: translate(0px, -50px);
+        }
+
+        25% {
+          transform: translate(0px, 10px);
+        }
+
+        50% {
+          transform: translate(0px, 0px);
+        }
+
+        75% {
+          transform: translate(0px, 50px);
+        }
+      }
+
+      @keyframes moveBall {
+
+        0%,
+        100% {
+          transform: translate(-100px, 30px);
+        }
+
+        25% {
+          transform: translate(98px, -25px);
+        }
+
+        50% {
+          transform: translate(-100px, -55px);
+        }
+
+        75% {
+          transform: translate(98px, 15px);
+        }
+      }
+
+
+      .loading {
+        width: 8vmax;
+        height: 8vmax;
+        border-right: 4px solid #333;
+        border-radius: 100%;
+        animation: spinRight 800ms linear infinite;
+
+        &:before,
+        &:after {
+          content: '';
+          width: 6vmax;
+          height: 6vmax;
+          display: block;
+          position: absolute;
+          top: calc(50% - 3vmax);
+          left: calc(50% - 3vmax);
+          border-left: 3px solid #333;
+          border-radius: 100%;
+          animation: spinLeft 800ms linear infinite;
+        }
+
+        &:after {
+          width: 4vmax;
+          height: 4vmax;
+          top: calc(50% - 2vmax);
+          left: calc(50% - 2vmax);
+          border: 0;
+          border-right: 2px solid #333;
+          animation: none;
+        }
+      }
+
+      @keyframes spinLeft {
+        from {
+          transform: rotate(0deg);
+        }
+
+        to {
+          transform: rotate(720deg);
+        }
+      }
+
+      @keyframes spinRight {
+        from {
+          transform: rotate(360deg);
+        }
+
+        to {
+          transform: rotate(0deg);
+        }
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <div class="main">
+      <div class="title">rawpasta API</div>
+      <div class="small">
+        <a target="_blank" href="docs.html">- Docs -</a>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $(".overlay").delay(1000).fadeOut("slow");
+      });
+    </script>
+  </body>
+</html>

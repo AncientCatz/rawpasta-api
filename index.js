@@ -8,6 +8,11 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.set('json spaces', 2)
+app.use('/', express.static('public', {
+  extension: ['html']
+}));
+
 // Retrieve MongoDB URI from system environment or use a default value
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/rawpasta';
 
@@ -277,7 +282,7 @@ app.get('/raw/:identifier?', (req, res, next) => {
         return next(error);
       }
 
-      res.send(file.fileContent);
+      res.json(file.fileContent);
     })
     .catch((err) => {
       next(err);
@@ -370,10 +375,21 @@ app.delete('/delete/:identifier?', authenticate, (req, res, next) => {
     });
 });
 
+//app.use((req, res, next) => {
+//  const error = new Error('Method Not Allowed');
+//  error.statusCode = 405;
+//  next(error);
+//});
+
 app.use((req, res, next) => {
-  const error = new Error('Method Not Allowed');
-  error.statusCode = 405;
-  next(error);
+  if (req.path == '/' && req.method == 'GET') {
+    next();
+  } else {
+    const error = new Error('Method Not Allowed');
+    error.statusCode = 405;
+    return next(error);
+  }
+  next();
 });
 
 app.use(errorHandler);
